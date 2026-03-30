@@ -2,6 +2,7 @@
 
 **Submitted by:** Aditya Raj Sharma  
 **Registration No:**  24BCE10497
+**Software Chosen:** LINUX
 
 
 ---
