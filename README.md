@@ -1,201 +1,168 @@
-# Linux Capstone OSS Project
+# 🐧 Open Source Audit — Linux Kernel
 
-**Submitted by:** Aditya Raj Sharma  
-**Registration No:**  24BCE10497
+## 📌 Student Details
 
-**Software Chosen:** LINUX
-
-
----
-
-## Overview
-
-This project explores the Linux operating system from its origins as an open-source solution to a gap in the software world, through its licensing philosophy, ethical implications, and practical shell scripting demonstrations.
+* **Name:** Aditya Raj Sharma
+* **Registration Number:** 24BCE10497
+* **Course:** Open Source Software
+* **Slot:** B22
+* **Software Chosen:** LINUX
 
 ---
 
-## Contents
+## 📖 Project Overview
 
-- [Background](#background)
-- [License](#license)
-- [Ethics of Open Source](#ethics-of-open-source)
-- [System Structure](#system-structure)
-- [Dependencies](#dependencies)
-- [What Linux Has Enabled](#what-linux-has-enabled)
-- [Linux vs Windows Server](#linux-vs-windows-server)
-- [Shell Scripts](#shell-scripts)
+This project is a structured audit of the **Linux Kernel**, focusing on its origin, licensing, ecosystem, and real-world impact. It also demonstrates practical Linux skills through five shell scripts.
+
+The Linux kernel was created by Linus Torvalds in 1991 to provide a **free Unix-like operating system**, solving the limitations of expensive and restricted systems like Unix and Minix. Today, Linux powers servers, smartphones, cloud systems, and supercomputers. 
 
 ---
 
-## Background
+## 🎯 Objectives
 
-Linux was created in 1991 by **Linus Torvalds**, then a 21-year-old student in Helsinki, to fill a gap left by Unix (powerful but proprietary) and Minix (educational but limited). Torvalds shared his kernel publicly and linked it with Richard Stallman's GNU tools, producing a fully functional, free, and open-source operating system.
-
-Today, Linux powers web servers, Android smartphones, supercomputers, cloud platforms, and NASA's Mars rovers.
-
----
-
-## License
-
-Linux is distributed under the **GNU General Public License v2 (GPL v2)**, which uses a "copyleft" model. This guarantees four core freedoms:
-
-| Freedom | Description |
-|--------|-------------|
-| Freedom 0 | Run the program for any purpose |
-| Freedom 1 | Study how the program works (source code access required) |
-| Freedom 2 | Redistribute copies freely |
-| Freedom 3 | Distribute modified versions so the community benefits |
-
-### GPL v2 vs MIT
-
-| Feature | GPL v2 (Copyleft) | MIT (Permissive) |
-|--------|-------------------|-----------------|
-| Share source? | Yes — required when distributing | No — changes can stay private |
-| Derivative licence | Must stay GPL | Any licence allowed |
-| Commercial use | Allowed, source stays open | Allowed, no conditions |
-| Who uses it | Linux, Git, MySQL | React, jQuery, VS Code |
+* Understand open-source philosophy and licensing (GPL v2)
+* Analyze Linux system structure and behavior
+* Compare open-source vs proprietary software
+* Demonstrate shell scripting skills using real Linux commands
 
 ---
 
-## Ethics of Open Source
+## 🧰 Scripts Overview
 
-Open-source software (Apache, Linux, Git, Python) forms the backbone of the modern internet. Key ethical considerations include:
+### 1️⃣ System Identity Report (`system_identity.sh`)
 
-- **Should all software be open source?** Good code takes time and investment; not all projects can sustain open development.
-- **Is it fair to monetise community code?** GPL licences allow it legally (e.g., Red Hat, Google, Meta). Ethically, contributing back — in code or funding — is encouraged.
+* Displays system details like:
+
+  * OS distribution
+  * Kernel version
+  * Logged-in user
+  * Uptime and date
+* Includes student information
+* Uses variables, command substitution, and formatted output
+
+👉 Purpose: Acts like a **system ID card** for Linux
 
 ---
 
-## System Structure
+### 2️⃣ FOSS Package Inspector (`package_inspector.sh`)
 
-### Installation
+* Checks if a package is installed
+* Displays version details
+* Uses `if-else`, `grep`, `awk`, and `case` statement
+
+👉 Purpose: Helps inspect installed open-source software
+
+---
+
+### 3️⃣ Disk and Permission Auditor (`disk_auditor.sh`)
+
+* Scans important directories:
+
+  * `/etc`, `/var/log`, `/home`, `/usr/bin`, `/tmp`
+* Displays:
+
+  * Permissions
+  * Owner
+  * Disk usage
+
+👉 Purpose: Monitors **system storage and security permissions**
+
+---
+
+### 4️⃣ Log File Analyzer (`log_analyzer.sh`)
+
+* Reads log files line by line
+* Counts occurrences of keywords like `error`
+* Displays last 5 matching entries
+
+👉 Purpose: Useful for **debugging and system monitoring**
+
+---
+
+### 5️⃣ Open Source Manifesto Generator (`manifesto_generator.sh`)
+
+* Takes user input (interactive)
+* Generates a personalized open-source statement
+* Saves output to a `.txt` file
+
+👉 Purpose: Demonstrates **user interaction + file handling**
+
+---
+
+## ⚙️ How to Run the Scripts
+
+### Step 1: Clone Repository
 
 ```bash
-# Debian / Ubuntu
-sudo apt update && sudo apt install linux-image-generic
-uname -r
-
-# RHEL / Fedora
-sudo dnf install kernel
+git clone https://github.com/your-username/oss-audit-24BCE10497.git
+cd oss-audit-24BCE10497
 ```
 
-### Key Directories
-
-| Directory | Purpose |
-|-----------|---------|
-| `/boot` | Kernel image (vmlinuz), initrd, GRUB config |
-| `/lib/modules/$(uname -r)` | Loadable kernel modules for the running version |
-| `/proc` | Virtual filesystem — live kernel and process info |
-| `/sys` | Virtual filesystem — hardware and driver info |
-| `/var/log/kern.log` | Kernel log messages (Debian-based systems) |
-
-### Useful Commands
-
-| Command | Purpose |
-|---------|---------|
-| `lsmod` | List loaded kernel modules |
-| `modprobe` | Load a kernel module |
-| `rmmod` | Remove a kernel module |
-| `sysctl` | Change kernel settings dynamically |
-
----
-
-## Dependencies
-
-| Dependency | Purpose |
-|-----------|---------|
-| GCC / Clang | Compilers used to build the kernel from source |
-| GNU Make | Build system that processes kernel Makefiles |
-| GNU Binutils | Assembler and linker used during compilation |
-| glibc | Standard C library — user-space programs use this to talk to the kernel |
-| OpenSSL | Used for kernel module signing and secure boot |
-
----
-
-## What Linux Has Enabled
-
-| Project | Relationship to Linux |
-|--------|----------------------|
-| Android | Built on the Linux kernel — billions of devices worldwide |
-| Git | Created by Linus Torvalds in 2005 for Linux kernel development |
-| Docker | Uses Linux kernel namespaces and cgroups as its foundation |
-| AWS / GCP / Azure | All major cloud platforms run on Linux under the hood |
-| ChromeOS | Google's desktop OS built on the Linux kernel |
-
-> The **LAMP stack** (Linux, Apache, MySQL, PHP) has been the backbone of web hosting for over two decades. The Linux kernel is maintained by Linus Torvalds and his team via the Linux Kernel Mailing List, with new versions released every 9–10 weeks.
-
----
-
-## Linux vs Windows Server
-
-| Dimension | Linux (Open Source) | Windows Server (Proprietary) |
-|----------|---------------------|------------------------------|
-| Cost | Free — no licence fee | Expensive per-server licensing |
-| Security auditing | Anyone can review the code | Black box — trust Microsoft's word |
-| Support | Community + paid options (Red Hat) | Microsoft support, SLAs |
-| Freedom to modify | Full — fork, patch, build on it | None — source is locked |
-| Hardware support | Broad, sometimes needs manual setup | Excellent driver support out of box |
-| Ease of use | Steeper learning curve | GUI-heavy, more accessible |
-
-**Verdict:** For server deployment, cloud infrastructure, or anywhere performance and cost control matter, Linux is the clear choice. Zero licence cost, a massive community, and full customisation make it hard to beat.
-
----
-
-## Shell Scripts
-
-Five Bash scripts are included to demonstrate core shell scripting concepts.
-
-### Script 1 — Hello World
-
-Prints a simple `Hello, World!` message to the terminal. Verifies the shell environment is working and demonstrates `echo` and script execution.
-
-### Script 2 — Adding Two Numbers
-
-Reads two integers from the user and prints their sum. Demonstrates:
-- `read -p` for user input
-- Variable storage
-- Arithmetic with `$(( ))`
-- Input validation using regex
-
-### Script 3 — Check if a File Exists
-
-Accepts a filename as input and checks whether the file exists on the system. Demonstrates:
-- `if-then-else` conditionals
-- The `-f` flag for file existence testing
-
-### Script 4 — Print Current Date and Time
-
-Displays the current system date and time (synced with the global clock).
+### Step 2: Give Permission
 
 ```bash
-#!/bin/bash
-echo "current date and time: $(date)"
+chmod +x *.sh
 ```
 
-### Script 5 — Simple Menu Script
-
-A menu-driven program built with a `while true` loop and `case` statement. Options include:
-
-1. Show Current Date and Time
-2. Show Current Directory
-3. List Files in Current Directory
-4. Show Disk Usage
-5. Exit
-
-Demonstrates: loops, `case` statements, `pwd`, `ls -l`, and `df -h`.
-
----
-
-## Running the Scripts
+### Step 3: Run Scripts
 
 ```bash
-# Make a script executable
-chmod +x scriptN.sh
-
-# Run it
-./scriptN.sh
+./system_identity.sh
+./package_inspector.sh
+./disk_auditor.sh
+./log_analyzer.sh /var/log/syslog error
+./manifesto_generator.sh
 ```
 
 ---
 
-*Linux Capstone OSS Project — VIT Bhopal*
+## 🖥️ Requirements
+
+* Ubuntu / Linux system
+* Bash shell
+* Basic utilities: `grep`, `awk`, `du`, `ls`, `dpkg`
+
+---
+
+## 🔍 Key Learnings
+
+* Linux is not just an OS but a **foundation of modern computing**
+* GPL ensures freedom while preventing misuse
+* Open source encourages collaboration and transparency
+* Shell scripting is powerful for automation and system analysis
+
+---
+
+## ⚖️ Open Source vs Proprietary (Summary)
+
+| Feature     | Linux     | Windows Server |
+| ----------- | --------- | -------------- |
+| Cost        | Free      | Expensive      |
+| Source Code | Open      | Closed         |
+| Flexibility | High      | Limited        |
+| Control     | Community | Corporate      |
+
+👉 Conclusion: Linux is ideal for performance, cost efficiency, and customization. 
+
+---
+
+## 📂 Repository Structure
+
+```
+oss-audit-24BCE10497/
+│── system_identity.sh
+│── package_inspector.sh
+│── disk_auditor.sh
+│── log_analyzer.sh
+│── manifesto_generator.sh
+│── README.md
+│── report.pdf
+```
+
+---
+
+## 🚀 Final Note
+
+This project demonstrates how open-source software like Linux is built collaboratively and powers the modern digital world. It also highlights how command-line tools and scripting form the backbone of Linux system management.
+
+---
